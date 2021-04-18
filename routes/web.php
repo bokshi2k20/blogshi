@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/**
+ * FRONTEND CONTROLLER
+ */
+
+Route::get('/',[FrontendController::class,'index'])->name('homepage');
+
+
+/**
+ * POST CONTROLLER
+ */
+Route::get('singlepost',[PostController::class,'singlepost'])->name('singlepost');
+Route::get('category',[CategoryController::class,'category'])->name('category');
+

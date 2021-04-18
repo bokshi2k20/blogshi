@@ -95,7 +95,7 @@
                     <div class="col-md-12">
                         <div class="logo">
                             {{-- {{asset('frontend/')}} --}}
-                            <a href="garden-index.html"><img src="{{asset('frontend/images/version/garden-logo.png')}}" alt=""></a>
+                            <a href="{{route('homepage')}}"><img src="{{asset('frontend/images/version/garden-logo.png')}}" alt=""></a>
                         </div><!-- end logo -->
                     </div>
                 </div><!-- end row -->
@@ -111,10 +111,10 @@
                     <div class="collapse navbar-collapse justify-content-md-center" id="Forest Timemenu">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="garden-index.html">Home</a>
+                                <a class="nav-link color-green-hover" href="{{route('homepage')}}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="garden-category.html">Gardening</a>
+                                <a class="nav-link color-green-hover" href="{{route('category')}}">Gardening</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link color-green-hover" href="garden-category.html">Outdoor Living</a>

@@ -8,8 +8,8 @@
                         <div class="shadow-desc">
                             <div class="blog-meta">
                                 <span class="bg-aqua"><a href="blog-category-01.html" title="">Gardening</a></span>
-                                <h4><a href="garden-single.html" title="">How to choose high quality soil for your gardens</a></h4>
-                                <small><a href="garden-single.html" title="">21 July, 2017</a></small>
+                                <h4><a href="{{ route('singlepost') }}" title="">How to choose high quality soil for your gardens</a></h4>
+                                <small><a href="{{ route('singlepost') }}" title="">21 July, 2017</a></small>
                                 <small><a href="#" title="">by Amanda</a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->
@@ -24,8 +24,8 @@
                         <div class="shadow-desc">
                             <div class="blog-meta">
                                 <span class="bg-aqua"><a href="blog-category-01.html" title="">Outdoor</a></span>
-                                <h4><a href="garden-single.html" title="">You can create a garden with furniture in your home</a></h4>
-                                <small><a href="garden-single.html" title="">19 July, 2017</a></small>
+                                <h4><a href="{{ route('singlepost') }}" title="">You can create a garden with furniture in your home</a></h4>
+                                <small><a href="{{ route('singlepost') }}" title="">19 July, 2017</a></small>
                                 <small><a href="#" title="">by Amanda</a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->
@@ -40,8 +40,8 @@
                         <div class="shadow-desc">
                             <div class="blog-meta">
                                 <span class="bg-aqua"><a href="blog-category-01.html" title="">Indoor</a></span>
-                                <h4><a href="garden-single.html" title="">The success of the 10 companies in the vegetable sector</a></h4>
-                                <small><a href="garden-single.html" title="">03 July, 2017</a></small>
+                                <h4><a href="{{ route('singlepost') }}" title="">The success of the 10 companies in the vegetable sector</a></h4>
+                                <small><a href="{{ route('singlepost') }}" title="">03 July, 2017</a></small>
                                 <small><a href="#" title="">by Jessica</a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->
