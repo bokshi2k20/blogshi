@@ -19,7 +19,7 @@
 
 
         <li class="nav-item">
-          <a href="dashboard-one.html" class="nav-link">
+          <a href="{{ route('dashboard') }}" class="nav-link">
             <i class="link-icon" data-feather="box"></i>
             <span class="link-title">Dashboard</span>
           </a>
@@ -52,6 +52,28 @@
           </div>
         </li>
 
+
+
+
+        {{-- category --}}
+        <li class="nav-item nav-category">Post Categories</li>
+
+
+
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#category" role="button" aria-expanded="false" aria-controls="category">
+            <i class="link-icon" data-feather="layers"></i>
+            <span class="link-title">Categories</span>
+            <i class="link-arrow" data-feather="chevron-down"></i>
+          </a>
+          <div class="collapse" id="category">
+            <ul class="nav sub-menu">
+              <li class="nav-item">
+                <a href="{{ route('category.create') }}" class="nav-link">Add New Category</a>
+              </li>
+            </ul>
+          </div>
+        </li>
        
        
         

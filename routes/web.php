@@ -16,6 +16,13 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
+
+Route::get('/sample', function(){
+    return view('backend.sample.table');
+});
+
+
+
 /**
  * FRONTEND CONTROLLER
  */
@@ -29,3 +36,7 @@ Route::get('/',[FrontendController::class,'index'])->name('homepage');
 Route::get('singlepost',[PostController::class,'singlepost'])->name('singlepost');
 Route::get('category',[CategoryController::class,'category'])->name('category');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
