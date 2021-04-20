@@ -5,6 +5,10 @@ use App\Helpers;
 use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Category;
+
+
+
+
 //Get file path
 //path is storage/app/
 function filePath($file)
@@ -39,4 +43,19 @@ function categories()
 {
     $categories = Category::where('publish', 1)->latest()->get();
     return $categories;
+}
+
+
+
+function postCount($id)
+{
+    return Post::where('category_id', $id)->count();
+}
+
+function menucategories()
+{
+    $menucategories = Category::where('publish', 1)
+                                ->where('menu', 1)
+                                ->get();
+     return $menucategories;
 }

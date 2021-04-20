@@ -28,12 +28,12 @@ Route::get('/sample', function(){
  */
 
 Route::get('/',[FrontendController::class,'index'])->name('homepage');
+Route::get('/post/{id}',[FrontendController::class,'singlePost'])->name('single.post');
 
 
 /**
  * POST CONTROLLER
  */
-Route::get('singlepost',[PostController::class,'singlepost'])->name('singlepost');
 Route::get('category',[CategoryController::class,'category'])->name('category');
 
 

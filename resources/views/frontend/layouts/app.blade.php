@@ -113,21 +113,18 @@
                             <li class="nav-item">
                                 <a class="nav-link color-green-hover" href="{{route('homepage')}}">Home</a>
                             </li>
+
+
+                            
+                            @forelse(menucategories()->take(5) as $menucategory)
                             <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="{{route('category')}}">Gardening</a>
+                                <a class="nav-link color-green-hover" href="{{route('category')}}">{{$menucategory->title}}</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="garden-category.html">Outdoor Living</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="garden-category.html">Indoor Living</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="garden-category.html">Shopping Guides</a>
-                            </li>  
-                            <li class="nav-item">
-                                <a class="nav-link color-green-hover" href="garden-contact.html">Contact</a>
-                            </li>
+                            @empty
+                            @endforelse
+
+
+
                         </ul>
                     </div>
                 </nav>

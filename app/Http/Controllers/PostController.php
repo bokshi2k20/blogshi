@@ -11,11 +11,6 @@ use Auth;
 class PostController extends Controller
 {
 
-    public function singlepost()
-    {
-        return view('frontend.singlepost');
-    }
-
     public function index()
     {
         $posts = Post::with('category')->with('user')->get();

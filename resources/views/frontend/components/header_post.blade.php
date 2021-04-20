@@ -9,10 +9,10 @@
                      <div class="shadoweffect">
                         <div class="shadow-desc">
                             <div class="blog-meta">
-                                <span class="bg-aqua"><a href="blog-category-01.html" title="{{$post->category->title}}"></a></span>
-                                <h4><a href="{{ route('singlepost') }}" title="">{{$post->title}}</a></h4>
-                                <small><a href="{{ route('singlepost') }}" title="">{{$post->created_at->format('d F,Y')}}</a></small>
-                                <small><a href="#" title="">{{$post->user->name}}</a></small>
+                                <span class="bg-aqua"><a href="{{ route('single.post', $post->id) }}" title="{{$post->category->title}}"></a></span>
+                                <h4><a href="{{ route('single.post', $post->id) }}" title="">{{$post->title}}</a></h4>
+                                <small><a href="{{ route('single.post', $post->id) }}" title="">{{$post->created_at->format('d F,Y')}}</a></small>
+                                <small><a href="{{ route('single.post', $post->id) }}" title="">{{$post->user->name}}</a></small>
                             </div><!-- end meta -->
                         </div><!-- end shadow-desc -->
                     </div><!-- end shadow -->
