@@ -65,6 +65,10 @@
               <li class="nav-item">
                 <a href="{{ route('category.create') }}" class="nav-link">Add New Category</a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('allcategory') }}" class="nav-link">All Categories</a>
+              </li>
+            
             </ul>
           </div>
         </li>

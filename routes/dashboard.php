@@ -18,4 +18,8 @@ Route::post('category/store',[CategoryController::class,'store'])->name('categor
 Route::get('post/create',[PostController::class,'create'])->name('post.create');
 Route::post('post/store',[PostController::class,'store'])->name('post.store');
 Route::get('posts',[PostController::class,'index'])->name('post.index');
+Route::get('allcategory',[CategoryController::class,'allcategory'])->name('allcategory');
+Route::get('/category/delete/{id}',[CategoryController::class,'category_delete'])->name('category.delete');
+Route::get('/category/delete/all/{id}',[CategoryController::class,'category_delete_all'])->name('category.delete_all');
+
 });

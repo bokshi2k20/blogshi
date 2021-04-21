@@ -28,7 +28,7 @@ Route::get('/sample', function(){
  */
 
 Route::get('/',[FrontendController::class,'index'])->name('homepage');
-Route::get('/post/{id}',[FrontendController::class,'singlePost'])->name('single.post');
+Route::get('/{id}/post',[FrontendController::class,'singlePost'])->name('single.post');
 
 
 /**
