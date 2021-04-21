@@ -91,6 +91,9 @@
               <li class="nav-item">
                 <a href="{{route('post.create')}}" class="nav-link">Create New Post</a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('post.index')}}" class="nav-link">All Posts</a>
+              </li>
             </ul>
           </div>
         </li>

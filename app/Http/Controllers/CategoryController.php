@@ -37,16 +37,16 @@ class CategoryController extends Controller
 
         if($request->publish = 1)
         {
-            $category->publish = true;
+            $category->publish = 1;
         }else{
-            $category->publish = false;
+            $category->publish = 0;
         }
 
         if($request->menu = 1)
         {
-            $category->menu = true;
+            $category->menu = 1;
         }else{
-            $category->menu = false;
+            $category->menu = 0;
         }
 
         $category->save();
@@ -90,9 +90,43 @@ class CategoryController extends Controller
             return back();
         }
     
-
-    
     }
+    
+    public function category_edit($id)
+    {
+        $category = Category::where('id', $id)->first();
+        return view('backend.edit', compact('category'));
+    }
+
+    public function category_update(Request $request, $id)
+    {
+
+        $category = Category::where('id', $id)->first();
+        $category->title=$request->title;
+
+        if ($request->hasFile('thumbnail')) {
+            $category->thumbnail = fileUpload($request->file('thumbnail'), 'categories');
+        }
+
+        if($request->publish == 1)
+        {
+            $category->publish = 1;
+        }else{
+            $category->publish = 0;
+        }
+
+        if($request->menu == 1)
+        {
+            $category->menu = 1;
+        }else{
+            $category->menu = 0;
+        }
+
+        $category->save();
+        return back();
+    }
+    
+
 
             
 

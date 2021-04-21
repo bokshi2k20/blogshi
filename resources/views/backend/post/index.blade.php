@@ -34,11 +34,15 @@
                             Title
                         </th>
                         <th>
-                            Publish
+                            Category
                         </th>
                         <th>
-                            Menu
+                            Description
                         </th>
+                        <th>
+                            Publish
+                        </th>
+                        
                         <th>
                             Created At
                         </th>
@@ -50,38 +54,41 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($allcategories as $allcategory)
+                    @forelse($allposts as $allpost)
                     <tr>
                         <td class="py-1">
                             <img src="http://via.placeholder.com/36x36" alt="image">
                         </td>
+
                         <td>
-                           {{$allcategory->title}}
+                           {{$allpost->title}}
                         </td>
                         
                         <td>
-                            @if ($allcategory->publish == 1)
+                            
+                            {{$allpost->category->title}}    
+                        </td>
+
+                        <td>
+                           
+                            {{$allpost->description}}
+                        </td>
+                        <td>
+                            @if ($allpost->publish == 1)
                                 published
                             @else
                                 unpublished
                             @endif
                                 
                         </td>
+                        
+
                         <td>
-                            @if ($allcategory->menu == 1)
-                                yes
-                            @else
-                                no
-                            @endif
-                            
+                            {{$allpost->created_at->diffForHumans()}}
                         </td>
                         <td>
-                            {{$allcategory->created_at->diffForHumans()}}
-                        </td>
-                        <td>
-                            <a href="{{route('category.edit', $allcategory->id)}}"><i data-feather="edit"></i></a>
-                            <a href="{{route('category.delete', $allcategory->id)}}"><i data-feather="trash" class="text-danger"></i></a>
-                            <a href="{{route('category.delete_all', $allcategory->id)}}"><i data-feather="alert-octagon" class="text-info"></i></a>
+                            <a href="{{route('post.edit', $allpost->id)}}"><i data-feather="edit"></i></a>
+                            <a href="{{route('post.delete', $allpost->id)}}"><i data-feather="trash" class="text-danger"></i></a>
                         </td>
                     </tr>
                     @empty
