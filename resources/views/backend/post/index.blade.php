@@ -11,16 +11,19 @@
             </p>
         @endif
 
-        <h4 class="card-title">Striped Table</h4>
+        <h4 class="card-title">All Post Search</h4>
         
         <div class="form-group row">
+            <form action="{{route('post.search')}}" Method="GET" class="w-100">
+                @csrf
             <label for="exampleInputUsername2" class="col-sm-1 col-form-label">Search</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Search">
+                <input type="text" name="search" class="form-control" id="exampleInputUsername2" placeholder="Search">
             </div>
-            <div class="col-sm-2">
-                <button class="btn btn-primary">Search</button>
+            <div class="col-sm-2 mt-3">
+                <button type="submit" class="btn btn-primary">Search</button>
             </div>
+        </form>
         </div>
 
         <div class="table-responsive">

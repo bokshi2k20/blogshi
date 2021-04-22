@@ -125,7 +125,15 @@ class CategoryController extends Controller
         $category->save();
         return back();
     }
-    
+
+    public function category_search(Request $request)
+    {
+        $search = $request->search;
+        $allcategories = Category::where('title', 'LIKE', $request->search)->get();
+        return view('backend.category.search', compact('allcategories','search'));
+
+    }
+
 
 
             

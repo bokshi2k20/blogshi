@@ -2,9 +2,10 @@
     <div class="sidebar">
         <div class="widget">
             <h2 class="widget-title">Search</h2>
-            <form class="form-inline search-form">
+            <form action="{{route('frontend.post.search')}}" method="GET" class="form-inline search-form">
+                @csrf
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search on the site">
+                    <input type="text" name="search" class="form-control" placeholder="Search on the site">
                 </div>
                 <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
             </form>
@@ -18,10 +19,10 @@
 
 
                    @forelse(posts()->take(3) as $post)
-                    <a href="garden-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <a href="{{route('single.post', $post->id)}}" class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="w-100 justify-content-between">
                             <img src="{{asset('frontend/upload/garden_sq_09.jpg')}}" alt="" class="img-fluid float-left">
-                            <h5 class="mb-1">{{$post->category->title}}</h5>
+                            <h5 class="mb-1">{{$post->title}}</h5>
                             <small>{{$post->created_at->format('d F,y')}}</small>
                         </div>
                     </a>
@@ -33,29 +34,7 @@
             </div><!-- end blog-list -->
         </div><!-- end widget -->
 
-        <div class="widget">
-            <h2 class="widget-title">Advertising</h2>
-            <div class="banner-spot clearfix">
-                <div class="banner-img">
-                    <img src="{{asset('frontend/upload/banner_04.jpg')}}" alt="" class="img-fluid">
-                </div><!-- end banner-img -->
-            </div><!-- end banner -->
-        </div><!-- end widget -->
 
-        <div class="widget">
-            <h2 class="widget-title">Instagram Feed</h2>
-            <div class="instagram-wrapper clearfix">
-                <a href="#"><img src="{{asset('frontend/upload/garden_sq_01.jpg')}}" alt="" class="img-fluid"></a>
-                <a href="#"><img src="{{asset('frontend/upload/garden_sq_02.jpg')}}" alt="" class="img-fluid"></a>
-                <a href="#"><img src="{{asset('frontend/upload/garden_sq_03.jpg')}}" alt="" class="img-fluid"></a>
-                <a href="#"><img src="{{asset('frontend/upload/garden_sq_04.jpg')}}" alt="" class="img-fluid"></a>
-                <a href="#"><img src="{{asset('frontend/upload/garden_sq_05.jpg')}}" alt="" class="img-fluid"></a>
-                <a href="#"><img src="{{asset('frontend/upload/garden_sq_06.jpg')}}" alt="" class="img-fluid"></a>
-                <a href="#"><img src="{{asset('frontend/upload/garden_sq_07.jpg')}}" alt="" class="img-fluid"></a>
-                <a href="#"><img src="{{asset('frontend/upload/garden_sq_08.jpg')}}" alt="" class="img-fluid"></a>
-                <a href="#"><img src="{{asset('frontend/upload/garden_sq_09.jpg')}}" alt="" class="img-fluid"></a>
-            </div><!-- end Instagram wrapper -->
-        </div><!-- end widget -->
 
 
         <div class="widget">
@@ -65,6 +44,7 @@
                     @forelse(categories() as $category)
                     <li><a href="{{route('category')}}">{{$category->title}}<span>({{ postCount($category->id) }})</span></a></li>
                     @empty
+                      no result found
                     @endforelse
 
                 </ul>

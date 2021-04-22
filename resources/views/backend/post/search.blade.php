@@ -11,14 +11,14 @@
             </p>
         @endif
 
-        <h4 class="card-title">All Categories List</h4>
+        <h4 class="card-title">All Post Search</h4>
         
         <div class="form-group row">
-            <form action="{{route('category.search')}}" Method="GET" class="w-100">
+            <form action="{{route('post.search')}}" Method="GET" class="w-100">
                 @csrf
             <label for="exampleInputUsername2" class="col-sm-1 col-form-label">Search</label>
             <div class="col-sm-9">
-                <input type="text" name="search" class="form-control" id="exampleInputUsername2" placeholder="Search">
+                <input type="text" value="{{ $search ?? null }}" name="search" class="form-control" id="exampleInputUsername2" placeholder="Search">
             </div>
             <div class="col-sm-2 mt-3">
                 <button type="submit" class="btn btn-primary">Search</button>
@@ -37,11 +37,15 @@
                             Title
                         </th>
                         <th>
-                            Publish
+                            Category
                         </th>
                         <th>
-                            Menu
+                            Description
                         </th>
+                        <th>
+                            Publish
+                        </th>
+                        
                         <th>
                             Created At
                         </th>
@@ -53,41 +57,48 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($allcategories as $allcategory)
+                    @forelse($allposts as $allpost)
                     <tr>
                         <td class="py-1">
                             <img src="http://via.placeholder.com/36x36" alt="image">
                         </td>
+
                         <td>
-                           {{$allcategory->title}}
+                           {{$allpost->title}}
                         </td>
                         
                         <td>
-                            @if ($allcategory->publish == 1)
+                            
+                            {{$allpost->category->title}}    
+                        </td>
+
+                        <td>
+                           
+                            {{$allpost->description}}
+                        </td>
+                        <td>
+                            @if ($allpost->publish == 1)
                                 published
                             @else
                                 unpublished
                             @endif
                                 
                         </td>
+                        
+
                         <td>
-                            @if ($allcategory->menu == 1)
-                                yes
-                            @else
-                                no
-                            @endif
-                            
+                            {{$allpost->created_at->diffForHumans()}}
                         </td>
                         <td>
-                            {{$allcategory->created_at->diffForHumans()}}
-                        </td>
-                        <td>
-                            <a href="{{route('category.edit', $allcategory->id)}}"><i data-feather="edit"></i></a>
-                            <a href="{{route('category.delete', $allcategory->id)}}"><i data-feather="trash" class="text-danger"></i></a>
-                            <a href="{{route('category.delete_all', $allcategory->id)}}"><i data-feather="alert-octagon" class="text-info"></i></a>
+                            <a href="{{route('post.edit', $allpost->id)}}"><i data-feather="edit"></i></a>
+                            <a href="{{route('post.delete', $allpost->id)}}"><i data-feather="trash" class="text-danger"></i></a>
                         </td>
                     </tr>
                     @empty
+                    <tr>
+                        <td colspan="7" class="text-center">No Result</td>
+                    </tr>
+                    
                     @endforelse
 
                     </tbody>

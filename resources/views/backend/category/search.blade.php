@@ -11,14 +11,14 @@
             </p>
         @endif
 
-        <h4 class="card-title">All Categories List</h4>
+        <h4 class="card-title">Search Result</h4>
         
         <div class="form-group row">
             <form action="{{route('category.search')}}" Method="GET" class="w-100">
                 @csrf
             <label for="exampleInputUsername2" class="col-sm-1 col-form-label">Search</label>
             <div class="col-sm-9">
-                <input type="text" name="search" class="form-control" id="exampleInputUsername2" placeholder="Search">
+                <input type="text" value="{{ $search ?? null }}" name="search" class="form-control" id="exampleInputUsername2" placeholder="Search">
             </div>
             <div class="col-sm-2 mt-3">
                 <button type="submit" class="btn btn-primary">Search</button>
@@ -88,6 +88,10 @@
                         </td>
                     </tr>
                     @empty
+
+                    <tr>
+                        <td colspan="6" class="text-center">No Result</td>
+                    </tr>
                     @endforelse
 
                     </tbody>

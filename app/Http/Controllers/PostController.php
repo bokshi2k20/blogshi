@@ -90,6 +90,14 @@ class PostController extends Controller
     
     }
 
+    public function post_search(Request $request)
+    {
+        $search = $request->search;
+        $allposts = Post::where('title', 'LIKE', $request->search)->get();
+        return view('backend.post.search', compact('allposts','search'));
+
+    }
+
    
 
             
