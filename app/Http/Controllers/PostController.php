@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Post;
 use Auth;
 use Session;
+use Image;
 
 
 class PostController extends Controller
@@ -27,10 +28,7 @@ class PostController extends Controller
         $post->user_id = Auth::user()->id;
         $post->category_id = $request->category_id;
         $post->description = $request->description;
-
-        if ($request->hasFile('thumbnail')) {
-            $post->thumbnail = fileUpload($request->file('thumbnail'), 'posts');
-        }
+        $post->thumbnail=time();
 
         if($request->publish = 1)
         {
@@ -40,6 +38,19 @@ class PostController extends Controller
         }
 
         $post->save();
+
+        if ($request->hasFile('thumbnail')) {
+            $photo_upload     =  $request->thumbnail;
+            $photo_extension  =  $photo_upload->getClientOriginalExtension();
+            $photo_name       =  $post->thumbnail . "." . $photo_extension;
+            Image::make($photo_upload)->save(base_path('public/uploads/thumbnails/' . $photo_name),100);
+            Post::find($post->id)->update([
+                'thumbnail'          => $photo_name,
+            ]);
+        }
+
+
+                
         return back();
     
     }
@@ -73,10 +84,9 @@ class PostController extends Controller
         $post->user_id = Auth::user()->id;
         $post->category_id = $request->category_id;
         $post->description = $request->description;
+        $post->thumbnail = time();
 
-        if ($request->hasFile('thumbnail')) {
-            $post->thumbnail = fileUpload($request->file('thumbnail'), 'posts');
-        }
+        
 
         if($request->publish = 1)
         {
@@ -86,6 +96,18 @@ class PostController extends Controller
         }
 
         $post->save();
+
+
+        if ($request->hasFile('thumbnail')) {
+            $photo_upload     =  $request->thumbnail;
+            $photo_extension  =  $photo_upload->getClientOriginalExtension();
+            $photo_name       =  $post->thumbnail . "." . $photo_extension;
+            Image::make($photo_upload)->save(base_path('public/uploads/thumbnails/' . $photo_name),100);
+            Post::find($post->id)->update([
+                'thumbnail'          => $photo_name,
+            ]);
+        }
+
         return back();
     
     }

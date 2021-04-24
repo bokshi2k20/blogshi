@@ -37,5 +37,16 @@ class FrontendController extends Controller
         $categories = Category::where('publish', 1)->get();
         return view('frontend.categorylist',compact('categories'));
     }
+
+    public function category_posts($id)
+        {
+            $posts = Post::where('category_id', $id)
+                    ->with('category')
+                    ->with('user')
+                    ->get();
+           return view('frontend.category_posts', compact('posts'));
+            
+        }
+    
     //end
 }

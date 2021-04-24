@@ -31,6 +31,7 @@ Route::get('/',[FrontendController::class,'index'])->name('homepage');
 Route::get('/{id}/post',[FrontendController::class,'singlePost'])->name('single.post');
 Route::get('search',[FrontendController::class,'post_search'])->name('frontend.post.search');
 Route::get('category/list',[FrontendController::class,'category_list'])->name('category.list');
+Route::get('category/posts/{id}',[FrontendController::class,'category_posts'])->name('category.posts');
 
 
 /**

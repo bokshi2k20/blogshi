@@ -84,6 +84,13 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                         <div class="topsearch text-right">
                             <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-search"></i> Search</a>
+                           @auth
+                            <a href="{{route('dashboard')}}" class="ml-3"><i class="fa fa-user"></i> {{ Auth::user()->name }}</a>
+                           @endauth
+
+                           @guest
+                               <a href="{{ route('login') }}" class="ml-3"><i class="fa fa-user"></i> Login</a>
+                           @endguest
                         </div><!-- end search -->
                     </div><!-- end col -->
                 </div><!-- end row -->
@@ -96,7 +103,7 @@
                     <div class="col-md-12">
                         <div class="logo">
                             {{-- {{asset('frontend/')}} --}}
-                            <a href="{{route('homepage')}}"><img src="{{asset('frontend/images/version/garden-logo.png')}}" alt=""></a>
+                            <a href="{{route('homepage')}}"><img src="{{ asset('uploads/logos/' . logo()) }}" alt=""></a>
                         </div><!-- end logo -->
                     </div>
                 </div><!-- end row -->
@@ -144,7 +151,7 @@
                     <div class="col-lg-8 offset-lg-2">
                         <div class="widget">
                             <div class="footer-text text-center">
-                                <a href="index.html"><img src="{{asset('frontend/images/version/garden-footer-logo.png')}}" alt="" class="img-fluid"></a>
+                                <a href="index.html"><img src="{{asset('uploads/logos/'. logo())}}" alt="" class="img-fluid"></a>
                                 <p>Forest Time is a personal blog for handcrafted, cameramade photography content, fashion styles from independent creatives around the world.</p>
                                 <div class="social">
                                     <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>              

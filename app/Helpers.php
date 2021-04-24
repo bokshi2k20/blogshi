@@ -5,6 +5,7 @@ use App\Helpers;
 use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Theme;
 
 
 
@@ -58,4 +59,14 @@ function menucategories()
                                 ->where('menu', 1)
                                 ->get();
      return $menucategories;
+}
+
+function logo()
+{
+    return Theme::latest()->first()->logo;
+}
+
+function thumb($id)
+{
+    return Post::where('id', $id)->first()->thumbnail;
 }

@@ -32,7 +32,7 @@
                                 <div class="blog-meta big-meta">
                                     <small><a href="garden-single.html" title="">{{$singleposts->created_at->format('d F,y')}}</a></small>
                                     <small><a href="blog-author.html" title="">{{$singleposts->user->name}}</a></small>
-                                    <small><a href="#" title=""><i class="fa fa-eye"></i> 2344</a></small>
+                                    <small><a href="#" title=""><i class="fa fa-eye"></i> {{ views($singleposts)->count() }}</a></small>
                                 </div><!-- end meta -->
 
                                 <div class="post-sharing">
@@ -45,7 +45,7 @@
                             </div><!-- end title -->
 
                             <div class="single-post-media">
-                                <img src="upload/garden_single_01.jpg" alt="" class="img-fluid">
+                                <img src="{{ asset('uploads/thumbnails/' . thumb($singleposts->id)) }}" alt="" class="img-fluid">
                             </div><!-- end media -->
 
                             <div class="blog-content">  
@@ -64,7 +64,7 @@
                                 <div class="col-lg-12">
                                     <div class="banner-spot clearfix">
                                         <div class="banner-img">
-                                            <img src="upload/banner_01.jpg" alt="" class="img-fluid">
+                                            <img src="{{ asset('uploads/thumbnails/' . thumb($singleposts->id)) }}" alt="" class="img-fluid">
                                         </div><!-- end banner-img -->
                                     </div><!-- end banner -->
                                 </div><!-- end col -->
@@ -106,7 +106,7 @@
                                         <div class="blog-box">
                                             <div class="post-media">
                                                 <a href="garden-single.html" title="">
-                                                    <img src="upload/garden_single_03.jpg" alt="" class="img-fluid">
+                                                    <img src="{{ asset('uploads/thumbnails/' . thumb($singleposts->id)) }}" alt="" class="img-fluid">
                                                     <div class="hovereffect">
                                                         <span class=""></span>
                                                     </div><!-- end hover -->
@@ -128,7 +128,7 @@
 
                             <hr class="invis1">
 
-                            <div class="custombox clearfix">
+                            <div class="custombox clearfix d-none">
                                 <h4 class="small-title">3 Comments</h4>
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -175,7 +175,7 @@
 
                             <hr class="invis1">
 
-                            <div class="custombox clearfix">
+                            <div class="custombox clearfix d-none">
                                 <h4 class="small-title">Leave a Reply</h4>
                                 <div class="row">
                                     <div class="col-lg-12">

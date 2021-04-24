@@ -5,7 +5,7 @@
             @forelse(posts()->take(3) as $post)
             <div class="left-side">
                 <div class="masonry-box post-media">
-                     <img src="{{asset('frontend/upload/garden_cat_01.jpg')}}" alt="" class="img-fluid">
+                     <img src="{{ asset('uploads/thumbnails/' . thumb($post->id)) }}" alt="" class="img-fluid">
                      <div class="shadoweffect">
                         <div class="shadow-desc">
                             <div class="blog-meta">

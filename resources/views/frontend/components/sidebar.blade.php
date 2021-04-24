@@ -21,7 +21,7 @@
                    @forelse(posts()->take(3) as $post)
                     <a href="{{route('single.post', $post->id)}}" class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="w-100 justify-content-between">
-                            <img src="{{asset('frontend/upload/garden_sq_09.jpg')}}" alt="" class="img-fluid float-left">
+                            <img src="{{ asset('uploads/thumbnails/' . thumb($post->id)) }}" alt="" class="img-fluid float-left">
                             <h5 class="mb-1">{{$post->title}}</h5>
                             <small>{{$post->created_at->format('d F,y')}}</small>
                         </div>
@@ -42,7 +42,7 @@
             <div class="link-widget">
                 <ul>
                     @forelse(categories() as $category)
-                    <li><a href="{{route('category')}}">{{$category->title}}<span>({{ postCount($category->id) }})</span></a></li>
+                    <li><a href="{{route('category.posts', $category->id)}}">{{$category->title}}<span>({{ postCount($category->id) }})</span></a></li>
                     @empty
                       no result found
                     @endforelse

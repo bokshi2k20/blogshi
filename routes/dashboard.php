@@ -4,12 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ThemeController;
 
 
 Route::group(['middleware' => ['auth']],function() {
 
 // DashboardController
 Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
+
 
 
 // CategoryController
@@ -31,5 +33,9 @@ Route::get('/post/edit/{id}',[PostController::class,'post_edit'])->name('post.ed
 Route::post('/post/update/{id}',[PostController::class,'post_update'])->name('post.update');
 Route::get('/post/search',[PostController::class,'post_search'])->name('post.search');
 
+
+// ThemeController
+Route::get('/theme/setup',[ThemeController::class,'index'])->name('theme.setup');
+Route::post('/theme/store',[ThemeController::class,'store'])->name('theme.store');
 
 });
