@@ -7,6 +7,12 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ThemeController;
 
 
+
+Route::get('/x', function(){
+    return monthlyVisitors();
+});
+
+
 Route::group(['middleware' => ['auth']],function() {
 
 // DashboardController

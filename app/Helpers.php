@@ -70,3 +70,47 @@ function thumb($id)
 {
     return Post::where('id', $id)->first()->thumbnail;
 }
+
+function totalVisitors()
+{
+    return DB::table('views')->count();
+}
+
+function totalPosts()
+{
+    return Post::count();
+}
+
+function totalCategories()
+{
+    return Category::count();
+}
+
+function monthlyVisitors()
+{
+    return  DB::table('views')->select(DB::raw("(COUNT(*)) as count"),DB::raw("MONTHNAME(viewed_at) as monthname"))
+                ->whereYear('viewed_at', date('Y'))
+                ->orderByRaw('DATE_FORMAT(viewed_at, "%m-%d")')
+                ->groupBy('monthname')
+                ->get();
+}
+
+
+function sentVisitorsCurrentMonthData()
+  {
+	return  DB::table('views')->whereMonth('viewed_at', date('m'))
+			->whereYear('viewed_at', date('Y'))
+			->count();
+  }
+
+  function weeklyVisitores()
+  {
+      $last7days = Carbon::now();
+      $last7days->subDays(7);
+  
+      return DB::table('views')->select('viewed_at')
+          ->groupBy('viewed_at')
+          ->orderByRaw('COUNT(*) DESC')
+          ->whereDate('viewed_at', '>=', $last7days)
+          ->count();
+   }

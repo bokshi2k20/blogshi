@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>NobleUI Responsive Bootstrap 4 Dashboard Template</title>
+	<title>Blogshi</title>
 	<!-- core:css -->
 	<link rel="stylesheet" href="{{asset('backend/assets/vendors/core/core.css')}}">
 	<!-- endinject -->
@@ -52,7 +52,7 @@
 
     <!-- partial:partials/_footer.html -->
 			<footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between">
-				<p class="text-muted text-center text-md-left">Copyright © 2020 <a href="https://www.nobleui.com" target="_blank">NobleUI</a>. All rights reserved</p>
+				<p class="text-muted text-center text-md-left">Copyright © {{ Carbon\Carbon::now()->year }}  <span class="text-primary">Blogshi</span>. All rights reserved <span class="text-primary">Anonna Bokshi</span></p>
 				<p class="text-muted text-center text-md-left mb-0 d-none d-md-block">Handcrafted With <i class="mb-1 text-primary ml-1 icon-small" data-feather="heart"></i></p>
 			</footer>
 			<!-- partial -->
@@ -69,6 +69,7 @@
   <script src="{{asset('backend/assets/vendors/jquery.flot/jquery.flot.resize.js')}}"></script>
   <script src="{{asset('backend/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
   <script src="{{asset('backend/assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="{{asset('backend/assets/vendors/progressbar.js/progressbar.min.js')}}"></script>
 	<!-- end plugin js for this page -->
 	<!-- inject:js -->
@@ -79,5 +80,29 @@
   <script src="{{asset('backend/assets/js/dashboard.js')}}"></script>
   <script src="{{asset('backend/assets/js/datepicker.js')}}"></script>
 	<!-- end custom js for this page -->
+
+	<script type="text/javascript">
+		// Load google charts
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.setOnLoadCallback(drawChart);
+		
+		// Draw the chart and set the chart values
+		function drawChart() {
+		  var data = google.visualization.arrayToDataTable([
+		  ['Visitors', 'Visitors per month'],
+		  @foreach(monthlyVisitors() as $visitor)
+			  ['{{ $visitor->monthname }}', {{ $visitor->count }}],
+		   @endforeach
+		
+		]);
+		
+		  // Optional; add a title and set the width and height of the chart
+		  var options = {'title':'Yearly Visitors', 'width':1000, 'height':500};
+		
+		  // Display the chart inside the <div> element with id="piechart"
+		  var chart = new google.visualization.AreaChart(document.getElementById('piechart'));
+		  chart.draw(data, options);
+		}
+		</script>
 </body>
 </html>    
