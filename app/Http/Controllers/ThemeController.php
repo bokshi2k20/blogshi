@@ -10,7 +10,8 @@ class ThemeController extends Controller
 {
     public function index()
     {
-        return view('backend.theme.index');
+        $themes = Theme::first();
+        return view('backend.theme.index', compact('themes'));
     }
 
     public function store(Request $request)
@@ -18,7 +19,7 @@ class ThemeController extends Controller
 
         
 
-        $theme = new Theme;
+        $theme = Theme::firstOrNew();
         $theme->logo = time();
         $theme->save();
 
@@ -37,6 +38,37 @@ class ThemeController extends Controller
 
         return back();
     }
+
+    public function social_store(Request $request)
+    {
+        $social = Theme::firstOrNew();
+        $social->facebook = $request->facebook;
+        $social->youtube = $request->youtube;
+        $social->pinterest = $request->pinterest;
+        $social->twitter = $request->twitter;
+        $social->flickr = $request->flickr;
+        $social->instagram = $request->instagram;
+        $social->save();
+        return back();
+    }
+
+    public function description_store(Request $request)
+    {
+        $desc = Theme::firstOrNew();
+        $desc->description = $request->description;
+        $desc->save();
+        return back();
+    }
+
+    public function footercredit_store(Request $request)
+    {
+        $footer = Theme::firstOrNew();
+        $footer->footer_credit = $request->footer_credit;
+        $footer->save();
+        return back();
+    }
+
+
 
 //end
 }

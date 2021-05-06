@@ -114,3 +114,19 @@ function sentVisitorsCurrentMonthData()
           ->whereDate('viewed_at', '>=', $last7days)
           ->count();
    }
+
+
+   function social()
+   {
+       return Theme::first();
+   }
+
+   function short_description()
+   {
+       return Theme::first()->description;
+   }
+
+   function footer_credit()
+   {
+       return Theme::first()->footer_credit;
+   }

@@ -10,7 +10,7 @@
                         <div class="shadow-desc">
                             <div class="blog-meta">
                                 <span class="bg-aqua"><a href="{{ route('single.post', $post->id) }}" title="{{$post->category->title}}"></a></span>
-                                <h4><a href="{{ route('single.post', $post->id) }}" title="">{{$post->title}}</a></h4>
+                                <h4><a href="{{ route('single.post', $post->id) }}" title="">{{Str::limit($post->title, 30)}}</a></h4>
                                 <small><a href="{{ route('single.post', $post->id) }}" title="">{{$post->created_at->format('d F,Y')}}</a></small>
                                 <small><a href="{{ route('single.post', $post->id) }}" title="">{{$post->user->name}}</a></small>
                             </div><!-- end meta -->

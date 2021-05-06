@@ -16,6 +16,14 @@ class CreateThemesTable extends Migration
         Schema::create('themes', function (Blueprint $table) {
             $table->id();
             $table->longText('logo')->nullable();
+            $table->longText('facebook')->nullable();
+            $table->longText('youtube')->nullable();
+            $table->longText('pinterest')->nullable();
+            $table->longText('twitter')->nullable();
+            $table->longText('flickr')->nullable();
+            $table->longText('instagram')->nullable();
+            $table->longText('description')->nullable();
+            $table->longText('footer_credit')->nullable();
             $table->timestamps();
         });
     }

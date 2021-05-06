@@ -43,5 +43,8 @@ Route::get('/post/search',[PostController::class,'post_search'])->name('post.sea
 // ThemeController
 Route::get('/theme/setup',[ThemeController::class,'index'])->name('theme.setup');
 Route::post('/theme/store',[ThemeController::class,'store'])->name('theme.store');
+Route::post('/social/store',[ThemeController::class,'social_store'])->name('social.store');
+Route::post('/description',[ThemeController::class,'description_store'])->name('description.store');
+Route::post('/footer/credit',[ThemeController::class,'footercredit_store'])->name('footercredit.store');
 
 });

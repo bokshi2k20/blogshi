@@ -22,7 +22,7 @@
                     <a href="{{route('single.post', $post->id)}}" class="list-group-item list-group-item-action flex-column align-items-start">
                         <div class="w-100 justify-content-between">
                             <img src="{{ asset('uploads/thumbnails/' . thumb($post->id)) }}" alt="" class="img-fluid float-left">
-                            <h5 class="mb-1">{{$post->title}}</h5>
+                            <h5 class="mb-1">{{Str::limit($post->title,30)}}</h5>
                             <small>{{$post->created_at->format('d F,y')}}</small>
                         </div>
                     </a>
