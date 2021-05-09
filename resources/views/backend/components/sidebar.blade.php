@@ -112,6 +112,28 @@
 
         {{-- Profile::END --}}
        
+        {{-- Subscription --}}
+
+        <li class="nav-item nav-category">Subscription</li>
+
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#profile" role="button" aria-expanded="false" aria-controls="profile">
+            <i class="link-icon" data-feather="user"></i>
+            <span class="link-title">Subscriptions</span>
+            <i class="link-arrow" data-feather="chevron-down"></i>
+          </a>
+          <div class="collapse" id="profile">
+            <ul class="nav sub-menu">
+              <li class="nav-item">
+                <a href="{{route('all.subscription')}}" class="nav-link">Subscription</a>
+              </li>
+              
+            </ul>
+          </div>
+        </li>
+
+        {{-- Subscription::END --}}
+       
        
         
       </ul>

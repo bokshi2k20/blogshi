@@ -18,6 +18,8 @@ Route::group(['middleware' => ['auth']],function() {
 
 // DashboardController
 Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
+Route::get('/all/subscription',[DashboardController::class,'all_subscription'])->name('all.subscription');
+Route::get('subscribe/delete/{id}',[DashboardController::class,'subscribe_delete'])->name('subscribe.delete');
 
 
 
@@ -52,5 +54,9 @@ Route::post('/footer/credit',[ThemeController::class,'footercredit_store'])->nam
 //ProfileController
 Route::get('/profile',[ProfileController::class,'index'])->name('profile.index');
 Route::post('/profile/store',[ProfileController::class,'store'])->name('profile.store');
+
+
+
+
 
 });

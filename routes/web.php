@@ -32,6 +32,9 @@ Route::get('/{id}/post',[FrontendController::class,'singlePost'])->name('single.
 Route::get('search',[FrontendController::class,'post_search'])->name('frontend.post.search');
 Route::get('category/list',[FrontendController::class,'category_list'])->name('category.list');
 Route::get('category/posts/{id}',[FrontendController::class,'category_posts'])->name('category.posts');
+Route::get('share',[FrontendController::class,'share'])->name('share');
+Route::post('subscribe',[FrontendController::class,'subscribe'])->name('subscribe');
+
 
 
 /**

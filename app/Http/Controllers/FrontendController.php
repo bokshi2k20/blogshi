@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\subscribe;
 use App\Models\Category;
+use Share;
 
 class FrontendController extends Controller
 {
@@ -47,6 +49,19 @@ class FrontendController extends Controller
            return view('frontend.category_posts', compact('posts'));
             
         }
+    public function share()
+    {
+        return redirect()->to(Share::currentPage()->facebook()->getRawLinks());
+    }
+
+    public function subscribe(Request $request)
+    {
+       $sub = new subscribe;
+       $sub->email = $request->email;
+       $sub->save();
+       return back();
+    }
+    
     
     //end
 }
