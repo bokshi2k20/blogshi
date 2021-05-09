@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\ProfileController;
 
 
 
@@ -46,5 +47,10 @@ Route::post('/theme/store',[ThemeController::class,'store'])->name('theme.store'
 Route::post('/social/store',[ThemeController::class,'social_store'])->name('social.store');
 Route::post('/description',[ThemeController::class,'description_store'])->name('description.store');
 Route::post('/footer/credit',[ThemeController::class,'footercredit_store'])->name('footercredit.store');
+
+
+//ProfileController
+Route::get('/profile',[ProfileController::class,'index'])->name('profile.index');
+Route::post('/profile/store',[ProfileController::class,'store'])->name('profile.store');
 
 });

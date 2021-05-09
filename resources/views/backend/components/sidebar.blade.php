@@ -88,6 +88,29 @@
         </li>
 
         {{-- POST::END --}}
+
+
+        {{-- Profile --}}
+
+        <li class="nav-item nav-category">User Profile</li>
+
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#profile" role="button" aria-expanded="false" aria-controls="profile">
+            <i class="link-icon" data-feather="user"></i>
+            <span class="link-title">Profile</span>
+            <i class="link-arrow" data-feather="chevron-down"></i>
+          </a>
+          <div class="collapse" id="profile">
+            <ul class="nav sub-menu">
+              <li class="nav-item">
+                <a href="{{route('profile.index')}}" class="nav-link">View Profile</a>
+              </li>
+              
+            </ul>
+          </div>
+        </li>
+
+        {{-- Profile::END --}}
        
        
         
