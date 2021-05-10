@@ -14,6 +14,8 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <!-- Site Icons -->
 
@@ -164,10 +166,10 @@
                                 <hr class="invis">
 
                                 <div class="newsletter-widget text-center">
-                                    <form action="{{route('subscribe')}}" method="POST" class="form-inline">
-                                        @csrf
-                                        <input type="email" name="email" class="form-control" placeholder="Enter your email address">
-                                        <button type="submit" class="btn btn-primary">Subscribe <i class="fa fa-envelope-open-o"></i></button>
+                                    <form class="form-inline">
+                                        <input type="hidden" id="url" value="{{route('subscribe')}}">
+                                        <input type="email" id="subscribe_email" required name="email" class="form-control" placeholder="Enter your email address">
+                                        <button type="button" onclick="Subscribe()" id="sbc-btn" value="Subscribe" class="btn btn-primary">Subscribe <i class="fa fa-envelope-open-o"></i></button>
                                     </form>
                                 </div><!-- end newsletter -->
                             </div><!-- end footer-text -->
@@ -196,8 +198,6 @@
     <script src="{{asset('frontend/js/tether.min.js')}}"></script>
     <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('frontend/js/custom.js')}}"></script>
-
-    
 
 </body>
 </html>

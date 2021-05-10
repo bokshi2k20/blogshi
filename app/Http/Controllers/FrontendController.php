@@ -59,7 +59,7 @@ class FrontendController extends Controller
        $sub = new subscribe;
        $sub->email = $request->email;
        $sub->save();
-       return back();
+       return response()->json('Subscribed', 200);
     }
     
     

@@ -66,3 +66,34 @@ function openCategory(evt, catName) {
     document.getElementById(catName).style.display = "block";
     evt.currentTarget.className += " active";
 } 
+
+
+function Subscribe()
+{
+    var url = $('#url').val();
+    var email = $('#subscribe_email').val();
+    
+    $.ajaxSetup({
+		headers: {
+		    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+    });
+
+
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data:{
+            email: email
+        },
+        success: function(data){
+            $('#sbc-btn').text(data);
+            $('#sbc-btn').addClass('disabled');
+            $('#sbc-btn').attr('disabled', true);
+            console.log(data);
+        }
+    });
+
+   
+
+}
