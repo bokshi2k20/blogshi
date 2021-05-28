@@ -16,6 +16,10 @@
 
         <li class="nav-item nav-category">Main</li>
 
+      @canany(['isCustomer', 'isAdmin'])
+
+
+      
 
 
         <li class="nav-item">
@@ -25,14 +29,13 @@
           </a>
         </li>
 
-
+@cannot('isCustomer')
         <li class="nav-item">
           <a href="{{ route('theme.setup') }}" class="nav-link">
             <i class="link-icon" data-feather="bar-chart"></i>
             <span class="link-title">Theme Setup</span>
           </a>
         </li>
-
 
 
 
@@ -61,6 +64,8 @@
             </ul>
           </div>
         </li>
+
+@endcannot
 
 
         {{-- POST --}}
@@ -91,6 +96,7 @@
 
 
         {{-- Profile --}}
+        
 
         <li class="nav-item nav-category">User Profile</li>
 
@@ -109,10 +115,12 @@
             </ul>
           </div>
         </li>
+        
 
         {{-- Profile::END --}}
        
         {{-- Subscription --}}
+        @cannot('isCustomer')
 
         <li class="nav-item nav-category">Subscription</li>
 
@@ -131,10 +139,11 @@
             </ul>
           </div>
         </li>
+        @endcannot
 
         {{-- Subscription::END --}}
        
-       
+       @endcanany
         
       </ul>
     </div>

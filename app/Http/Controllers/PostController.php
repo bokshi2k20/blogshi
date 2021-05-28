@@ -57,7 +57,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $allposts = Post::latest()->get();
+        $allposts = Post::where('id', Auth::user()->id)->latest()->get();
         return view('backend.post.index', compact('allposts'));
 
     }

@@ -95,6 +95,14 @@
                         </td>
                     </tr>
                     @empty
+
+                    <tr>
+                          
+                          <td colspan="7" class="text-center">
+                                No Post Found
+                          </td>
+                    
+                    </tr>
                     @endforelse
 
                     </tbody>
