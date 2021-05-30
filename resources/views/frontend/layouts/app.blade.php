@@ -84,13 +84,24 @@
 
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                         <div class="topsearch text-right">
-                            <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><i class="fa fa-search"></i> Search</a>
+                            <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="fa fa-search"></i> Search</a>
+                                <form action="{{ route('translate') }}" method="GET" id="translate_form">
+                                    @csrf
+                                <select name="translate" class="form-control" id="translate_select">
+                                    <option value="bn">BN</option>
+                                    <option value="en">EN</option>
+                                    <option value="hi">Hi</option>
+                                </select>
+                            </form>
+
+
                            @auth
                             <a href="{{route('dashboard')}}" class="ml-3"><i class="fa fa-user"></i> {{ Auth::user()->name }}</a>
                            @endauth
 
                            @guest
-                               <a href="{{ route('login') }}" class="ml-3"><i class="fa fa-user"></i> Login</a>
+                               <a href="{{ route('login') }}" class="ml-3"><i class="fa fa-user"></i> {{ tr('Login', lang()) }}</a>
                            @endguest
                         </div><!-- end search -->
                     </div><!-- end col -->

@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\CategoryController;
+use Stichoza\GoogleTranslate\GoogleTranslate;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +21,15 @@ use App\Http\Controllers\CategoryController;
 
 
 Route::get('/sample', function(){
-    return view('backend.sample.table');
+       return view('backend.sample.table');
 });
+
+
+Route::get('/translate', function(Request $request){
+ 
+    setLang($request->translate);
+    return back();
+})->name('translate');
 
 
 

@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Theme;
-
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 
 
@@ -129,4 +129,21 @@ function sentVisitorsCurrentMonthData()
    function footer_credit()
    {
        return Theme::first()->footer_credit;
+   }
+
+   
+   function tr($text, $lang)
+   {
+       $tr = new GoogleTranslate;
+       return $tr->setSource()->settarget($lang)->translate($text);
+   }
+
+   function setLang($language)
+   {
+       return Session::put('language', $language);
+   }
+
+   function lang()
+   {
+    return Session::get('language');
    }

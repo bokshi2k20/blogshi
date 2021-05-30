@@ -97,3 +97,8 @@ function Subscribe()
    
 
 }
+
+
+$('#translate_select').on('change', function(){
+    $('#translate_form').submit();
+})
