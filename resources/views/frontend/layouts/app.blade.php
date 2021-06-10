@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- Site Metas -->
-    <title>Forest Time - Stylish Magazine Blog Template</title>
+    <title>{{ env('APP_NAME') }}</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -19,8 +19,8 @@
     
     <!-- Site Icons -->
 
-    <link rel="shortcut icon" href="{{ asset('frontend/images/favicon.ico') }}" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="{{ asset('frontend/images/apple-touch-icon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('uploads/logos/' . logo()) }}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{{ asset('uploads/logos/' . logo()) }}">
     
     <!-- Design fonts -->
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet"> 
@@ -70,12 +70,12 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-6 hidden-xs-down">
                         <div class="topsocial">
-                            <a href="{{ social()->facebook }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="{{ social()->pinterest }}" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
-                            <a href="{{ social()->twitter }}" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="{{ social()->flickr }}" data-toggle="tooltip" data-placement="bottom" title="Flickr"><i class="fa fa-flickr"></i></a>
-                            <a href="{{ social()->instagram }}" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
-                            <a href="{{ social()->youtube }}" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fa fa-youtube"></i></a>
+                            <a href="{{ social()->facebook ?? null  }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="{{ social()->pinterest ?? null  }}" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                            <a href="{{ social()->twitter ?? null  }}" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="{{ social()->flickr ?? null  }}" data-toggle="tooltip" data-placement="bottom" title="Flickr"><i class="fa fa-flickr"></i></a>
+                            <a href="{{ social()->instagram ?? null  }}" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
+                            <a href="{{ social()->youtube ?? null  }}" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fa fa-youtube"></i></a>
                         </div><!-- end social -->
                     </div><!-- end col -->
 
@@ -88,7 +88,7 @@
                                 <i class="fa fa-search"></i> Search</a>
                                 <form action="{{ route('translate') }}" method="GET" id="translate_form">
                                     @csrf
-                                <select name="translate" class="form-control" id="translate_select">
+                                <select name="translate" class="form-control d-none" id="translate_select">
                                     <option value="bn">BN</option>
                                     <option value="en">EN</option>
                                     <option value="hi">Hi</option>
@@ -101,7 +101,7 @@
                            @endauth
 
                            @guest
-                               <a href="{{ route('login') }}" class="ml-3"><i class="fa fa-user"></i> {{ tr('Login', lang()) }}</a>
+                               <a href="{{ route('login') }}" class="ml-3"><i class="fa fa-user"></i> Login</a>
                            @endguest
                         </div><!-- end search -->
                     </div><!-- end col -->
@@ -115,7 +115,7 @@
                     <div class="col-md-12">
                         <div class="logo">
                             {{-- {{asset('frontend/')}} --}}
-                            <a href="{{route('homepage')}}"><img src="{{ asset('uploads/logos/' . logo()) }}" alt=""></a>
+                            <a href="{{route('homepage')}}"><img src="{{ asset('uploads/logos/' . logo()) }}" width="80" alt=""></a>
                         </div><!-- end logo -->
                     </div>
                 </div><!-- end row -->
@@ -163,15 +163,15 @@
                     <div class="col-lg-8 offset-lg-2">
                         <div class="widget">
                             <div class="footer-text text-center">
-                                <a href="index.html"><img src="{{asset('uploads/logos/'. logo())}}" alt="" class="img-fluid"></a>
+                                <a href="{{ route('homepage') }}"><img src="{{asset('uploads/logos/'. logo())}}" width="100" alt="" class="img-fluid"></a>
                                 <p>{{short_description()}}</p>
                                 <div class="social">
-                                    <a href="{{ social()->facebook }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>              
-                                    <a href="{{ social()->twitter }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
-                                    <a href="{{ social()->youtube }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fa fa-youtube"></i></a>
-                                    <a href="{{ social()->flickr }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Flickr"><i class="fa fa-flickr"></i></a>
-                                    <a href="{{ social()->instagram }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
-                                    <a href="{{ social()->pinterest }}" target="_blank"  data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                                    <a href="{{ social()->facebook ?? null }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>              
+                                    <a href="{{ social()->twitter ?? null  }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                    <a href="{{ social()->youtube ?? null  }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fa fa-youtube"></i></a>
+                                    <a href="{{ social()->flickr ?? null  }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Flickr"><i class="fa fa-flickr"></i></a>
+                                    <a href="{{ social()->instagram ?? null  }}" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i class="fa fa-instagram"></i></a>
+                                    <a href="{{ social()->pinterest ?? null  }}" target="_blank"  data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i class="fa fa-pinterest"></i></a>
                                 </div>
 
                                 <hr class="invis">

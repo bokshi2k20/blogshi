@@ -30,7 +30,7 @@ class FrontendController extends Controller
     {
  
         $search = $request->search;
-        $allposts = Post::where('title', 'LIKE', $request->search)->get();
+        $allposts = Post::where('title', 'LIKE', "%{$request->search}%")->get();
         return view('frontend.search', compact('allposts', 'search'));
     }
 

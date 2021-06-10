@@ -14,7 +14,7 @@
                             <div class="col-md-4">
                                 <div class="post-media">
                                     <a href="{{route('single.post', $post->id)}}" title="">
-                                        <img src="{{asset('frontend/upload/garden_sq_01.jpg')}}" alt="" class="img-fluid">
+                                        <img src="{{ asset('uploads/thumbnails/' . thumb($post->id)) }}" alt="" class="img-fluid">
                                         <div class="hovereffect"></div>
                                     </a>
                                 </div><!-- end media -->
@@ -24,7 +24,7 @@
                                 <span class="bg-aqua"><a href="garden-category.html" title="">{{ $post->category->title}}</a></span>
                                 <h4><a href="{{route('single.post', $post->id)}}" title="">{{ $post->title }}</a></h4>
                                 <p>{{ $post->description }}</p>
-                                <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 1887</a></small>
+                                <small><a href="#" title=""><i class="fa fa-eye"></i>  {{ views($post)->count() }}</a></small>
                                 <small><a href="{{route('single.post', $post->id)}}" title="">{{ $post->created_at->format('d F, Y') }}</a></small>
                                 <small>{{$post->user->name}}</small>
                             </div><!-- end meta -->

@@ -102,14 +102,14 @@
 					<div class="col-md-8 col-xl-6 mx-auto">
 						<div class="card">
 							<div class="row">
-                <div class="col-md-4 pr-md-0">
-                  <div class="auth-left-wrapper">
-
-                  </div>
+                <div class="col-md-2 pr-md-0">
+                 
                 </div>
                 <div class="col-md-8 pl-md-0">
                   <div class="auth-form-wrapper px-4 py-5">
-                    <a href="#" class="noble-ui-logo d-block mb-2">Noble<span>UI</span></a>
+                    <a href="{{route('homepage')}}" class="noble-ui-logo d-block mb-2">
+                        <img src="{{ asset('uploads/logos/' . logo()) }}" width="150px" alt="">
+                    </a>
                     <form class="forms-sample" method="POST" action="{{ route('login') }}">
                         @csrf
 

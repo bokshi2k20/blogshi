@@ -50,14 +50,14 @@ class PostController extends Controller
         }
 
 
-                
+        watching('new post created');
         return back();
     
     }
 
     public function index()
     {
-        $allposts = Post::where('id', Auth::user()->id)->latest()->get();
+        $allposts = Post::where('user_id', Auth::user()->id)->latest()->get();
         return view('backend.post.index', compact('allposts'));
 
     }
@@ -65,6 +65,7 @@ class PostController extends Controller
     {
         Post::findOrFail($id)->delete();
         Session::flash('message', 'Post deleted successfull');
+        watching('post deleted');
         return back();
     }
 

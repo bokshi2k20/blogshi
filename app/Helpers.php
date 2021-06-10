@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Theme;
+use App\Models\UserNotification;
 use Stichoza\GoogleTranslate\GoogleTranslate;
 
 
@@ -63,7 +64,13 @@ function menucategories()
 
 function logo()
 {
-    return Theme::latest()->first()->logo;
+    $logo = Theme::latest()->first();
+    if($logo != null)
+    {
+        return $logo->logo;
+    }else{
+        return 'logo.png';
+    }
 }
 
 function thumb($id)
@@ -123,12 +130,12 @@ function sentVisitorsCurrentMonthData()
 
    function short_description()
    {
-       return Theme::first()->description;
+       return Theme::first()->description ?? null;
    }
 
    function footer_credit()
    {
-       return Theme::first()->footer_credit;
+       return Theme::first()->footer_credit ?? null;
    }
 
    
@@ -146,4 +153,20 @@ function sentVisitorsCurrentMonthData()
    function lang()
    {
     return Session::get('language');
+   }
+
+
+   function allNotifications()
+   {
+        return UserNotification::where('user_id', Auth::id())->latest()->paginate(10);
+        
+   }
+
+   function watching($message)
+   {
+        $notify = new UserNotification;
+        $notify->user_id =  Auth::id();
+        $notify->message =  $message;
+        $notify->save();
+        return back();
    }

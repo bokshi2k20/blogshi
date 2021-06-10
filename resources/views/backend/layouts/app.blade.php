@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Blogshi</title>
+	<title>{{ env('APP_NAME') }}</title>
 	<!-- core:css -->
 	<link rel="stylesheet" href="{{asset('backend/assets/vendors/core/core.css')}}">
 	<!-- endinject -->
@@ -19,7 +19,7 @@
   <!-- Layout styles -->  
 	<link rel="stylesheet" href="{{asset('backend/assets/css/demo_1/style.css')}}">
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="{{asset('backend/assets/images/favicon.png')}}" />
+  <link rel="shortcut icon" href="{{ asset('uploads/logos/' . logo()) }}" />
 </head>
 <body>
 	<div class="main-wrapper">

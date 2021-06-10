@@ -23,8 +23,8 @@
                             <div class="blog-meta big-meta col-md-8">
                                 <span class="bg-aqua"><a href="garden-category.html" title="">{{ $post->category->title}}</a></span>
                                 <h4><a href="{{route('single.post', $post->id)}}" title="">{{ $post->title }}</a></h4>
-                                <p>{{ $post->description }}</p>
-                                <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 1887</a></small>
+                                <p>{{ Str::limit($post->description, 300) }}</p>
+                                <small><a href="#" title=""><i class="fa fa-eye"></i> {{ views($post)->count() }}</a></small>
                                 <small><a href="{{route('single.post', $post->id)}}" title="">{{ $post->created_at->format('d F, Y') }}</a></small>
                                 <small>{{$post->user->name}}</small>
                             </div><!-- end meta -->

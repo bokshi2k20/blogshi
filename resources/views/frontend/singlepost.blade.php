@@ -30,8 +30,8 @@
                                 <h3>{{$singleposts->title}}</h3>
 
                                 <div class="blog-meta big-meta">
-                                    <small><a href="garden-single.html" title="">{{$singleposts->created_at->format('d F,y')}}</a></small>
-                                    <small><a href="blog-author.html" title="">{{$singleposts->user->name}}</a></small>
+                                    <small><a href="#" title="">{{$singleposts->created_at->format('d F,y')}}</a></small>
+                                    <small><a href="#" title="">{{$singleposts->user->name}}</a></small>
                                     <small><a href="#" title=""><i class="fa fa-eye"></i> {{ views($singleposts)->count() }}</a></small>
                                 </div><!-- end meta -->
 

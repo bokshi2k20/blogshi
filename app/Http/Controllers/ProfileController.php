@@ -20,14 +20,23 @@ class ProfileController extends Controller
 
         $validated = $request->validate([
             'name' => 'required|max:255',
-            'email' => 'required|unique:users|email',
             'image' => 'mimes:jpg,bmp,png',
         ]);
 
 
         $user = User::where('id', Auth::user()->id)->first();
         $user->name = $request->name;
-        $user->email = $request->email; 
+
+
+        if ($user->email != $request->email) {
+
+            $validated = $request->validate([
+                'email' => 'required|unique:users|email',
+            ]);
+
+            $user->email = $request->email; 
+        }
+
         
         if($request->has('password')){
             $user->password = Hash::make($request->password);        
@@ -44,6 +53,9 @@ class ProfileController extends Controller
             $image_save->image = $photo_name;
             $image_save->save();
         }     
+
+
+        watching('profile stored');
 
         return back();
     }

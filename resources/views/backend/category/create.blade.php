@@ -13,7 +13,7 @@
             <div class="form-group row">
                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Category Title</label>
                 <div class="col-sm-9">
-                    <input type="text" name="title" class="form-control" id="exampleInputUsername2" placeholder="Email">
+                    <input type="text" name="title" class="form-control" id="exampleInputUsername2" placeholder="Category title">
                 </div>
             </div>
 
@@ -21,7 +21,7 @@
             <div class="form-group row">
                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Category Thumbnail</label>
                 <div class="col-sm-9">
-                    <input type="file" name="thumbnail" class="form-control" id="exampleInputUsername2" placeholder="Email">
+                    <input type="file" name="thumbnail" class="form-control" id="exampleInputUsername2">
                 </div>
             </div>
 

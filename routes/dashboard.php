@@ -17,7 +17,7 @@ Route::get('/x', function(){
 Route::group(['middleware' => ['auth']],function() {
 
 // DashboardController
-Route::get('dashboard',[DashboardController::class,'index'])->middleware('can:isCustomer')->name('dashboard');
+Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
 Route::get('/all/subscription',[DashboardController::class,'all_subscription'])->middleware('can:isAdmin')->name('all.subscription');
 Route::get('subscribe/delete/{id}',[DashboardController::class,'subscribe_delete'])->middleware('can:isAdmin')->name('subscribe.delete');
 
@@ -34,13 +34,13 @@ Route::post('/category/update/{id}',[CategoryController::class,'category_update'
 Route::get('/category/search',[CategoryController::class,'category_search'])->middleware('can:isAdmin')->name('category.search');
 
 //PostController 
-Route::get('post/create',[PostController::class,'create'])->middleware('can:isAdmin')->middleware('can:isCustomer')->name('post.create');
-Route::post('post/store',[PostController::class,'store'])->middleware('can:isAdmin')->middleware('can:isCustomer')->name('post.store');
-Route::get('allpost',[PostController::class,'index'])->middleware('can:isAdmin')->middleware('can:isCustomer')->name('post.index');
-Route::get('/post/delete/{id}',[PostController::class,'post_delete'])->middleware('can:isAdmin')->middleware('can:isCustomer')->name('post.delete');
-Route::get('/post/edit/{id}',[PostController::class,'post_edit'])->middleware('can:isAdmin')->middleware('can:isCustomer')->name('post.edit');
-Route::post('/post/update/{id}',[PostController::class,'post_update'])->middleware('can:isAdmin')->middleware('can:isCustomer')->name('post.update');
-Route::get('/post/search',[PostController::class,'post_search'])->middleware('can:isAdmin')->middleware('can:isCustomer')->name('post.search');
+Route::get('post/create',[PostController::class,'create'])->name('post.create');
+Route::post('post/store',[PostController::class,'store'])->name('post.store');
+Route::get('allpost',[PostController::class,'index'])->name('post.index');
+Route::get('/post/delete/{id}',[PostController::class,'post_delete'])->name('post.delete');
+Route::get('/post/edit/{id}',[PostController::class,'post_edit'])->name('post.edit');
+Route::post('/post/update/{id}',[PostController::class,'post_update'])->name('post.update');
+Route::get('/post/search',[PostController::class,'post_search'])->name('post.search');
 
 
 // ThemeController
@@ -52,8 +52,8 @@ Route::post('/footer/credit',[ThemeController::class,'footercredit_store'])->mid
 
 
 //ProfileController
-Route::get('/profile',[ProfileController::class,'index'])->middleware('can:isCustomer')->name('profile.index');
-Route::post('/profile/store',[ProfileController::class,'store'])->middleware('can:isAdmin')->middleware('can:isCustomer')->name('profile.store');
+Route::get('/profile',[ProfileController::class,'index'])->name('profile.index');
+Route::post('/profile/store',[ProfileController::class,'store'])->name('profile.store');
 
 
 

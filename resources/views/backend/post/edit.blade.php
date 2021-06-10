@@ -42,7 +42,7 @@
             <div class="form-group">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="checkbox" name="publish" class="form-check-input">
+                        <input type="checkbox" name="publish" {{ $post->publish == 1 ? 'checked' : '' }} class="form-check-input">
                         Is Publish?
                     </label>
                 </div>

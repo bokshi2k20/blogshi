@@ -30,18 +30,14 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>
-                            Thumbnail
-                        </th>
+                       
                         <th>
                             Title
                         </th>
                         <th>
                             Category
                         </th>
-                        <th>
-                            Description
-                        </th>
+                        
                         <th>
                             Publish
                         </th>
@@ -59,22 +55,15 @@
                 <tbody>
                     @forelse($allposts as $allpost)
                     <tr>
-                        <td class="py-1">
-                            <img src="http://via.placeholder.com/36x36" alt="image">
-                        </td>
+                        
 
                         <td>
-                           {{$allpost->title}}
+                           {{Str::limit($allpost->title, 50)}}
                         </td>
                         
                         <td>
                             
                             {{$allpost->category->title}}    
-                        </td>
-
-                        <td>
-                           
-                            {{$allpost->description}}
                         </td>
                         <td>
                             @if ($allpost->publish == 1)

@@ -50,6 +50,8 @@ class CategoryController extends Controller
         }
 
         $category->save();
+
+        watching('new category created');
         return back();
     }
     public function allcategory()
@@ -72,6 +74,8 @@ class CategoryController extends Controller
             Session::flash('message', 'This category can not be deleted, because there have category related posts');
             return back();
         }
+
+        watching('category deleted');
 
         return back();
     }
