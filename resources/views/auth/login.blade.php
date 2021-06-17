@@ -160,7 +160,12 @@
                       </div>
                       <a href="{{ route('register') }}" class="d-block mt-3 text-muted">Create a new account</a>
                     </form>
+                    @if(env('DEMO')=='YES')
+                    <button onclick="admin()" class="btn btn-primary mt-3"> Admin </button>
+                    <button onclick="customer()" class="btn btn-primary mt-3"> Customer </button>
+                    @endif
                   </div>
+                
                 </div>
               </div>
 						</div>

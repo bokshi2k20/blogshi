@@ -194,3 +194,15 @@
 
   });
 })(jQuery);
+
+function admin()
+{
+  $('#exampleInputEmail1').val('admin@mail.com');
+  $('#exampleInputPassword1').val('12345678');
+}
+
+function customer()
+{
+  $('#exampleInputEmail1').val('customer@mail.com');
+  $('#exampleInputPassword1').val('12345678');
+}
